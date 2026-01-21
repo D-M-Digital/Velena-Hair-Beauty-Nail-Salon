@@ -62,6 +62,33 @@ This project is built with:
 
 ## How can I deploy this project?
 
+### Deploy to GitHub Pages
+
+This project is configured for automatic deployment to GitHub Pages:
+
+1. **Enable GitHub Pages in your repository:**
+   - Go to your repository on GitHub
+   - Navigate to Settings > Pages
+   - Under "Source", select "GitHub Actions"
+
+2. **Automatic Deployment:**
+   - The project includes a GitHub Actions workflow (`.github/workflows/deploy.yml`)
+   - Every push to `main` or `master` branch will automatically build and deploy to GitHub Pages
+   - You can also manually trigger deployment from the Actions tab
+
+3. **Manual Build (for testing):**
+   ```sh
+   npm run build
+   ```
+   The built files will be in the `dist` directory.
+
+4. **Base Path Configuration:**
+   - For project pages (e.g., `username.github.io/repo-name`), the base path is automatically set
+   - For user/organization pages (e.g., `username.github.io`), the base path is set to `/`
+   - You can override this by setting the `VITE_BASE_PATH` environment variable
+
+### Deploy via Lovable
+
 Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
 
 ## Can I connect a custom domain to my Lovable project?
