@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Velena Brand Colors - Pastel Pink & Gold Theme */
+    --background: 0 0% 100%;
+    --foreground: 340 10% 20%;
+
+    --card: 340 30% 98%;
+    --card-foreground: 340 10% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 10% 20%;
+
+    /* Primary - Elegant Rose Pink */
+    --primary: 340 45% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Soft Blush */
+    --secondary: 340 25% 95%;
+    --secondary-foreground: 340 10% 25%;
+
+    /* Muted - Soft Gray Pink */
+    --muted: 340 15% 95%;
+    --muted-foreground: 340 10% 45%;
+
+    /* Accent - Rose Gold */
+    --accent: 25 40% 70%;
+    --accent-foreground: 25 50% 15%;
+
+    /* Gold */
+    --gold: 38 70% 55%;
+    --gold-light: 38 60% 75%;
+    --gold-foreground: 38 70% 15%;
+
+    /* Rose variations */
+    --rose-50: 340 40% 98%;
+    --rose-100: 340 35% 95%;
+    --rose-200: 340 30% 90%;
+    --rose-300: 340 35% 82%;
+    --rose-400: 340 40% 70%;
+    --rose-500: 340 45% 60%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 340 20% 90%;
+    --input: 340 20% 90%;
+    --ring: 340 45% 65%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-rose: linear-gradient(135deg, hsl(340 45% 65%), hsl(340 35% 75%));
+    --gradient-gold: linear-gradient(135deg, hsl(38 70% 55%), hsl(25 50% 65%));
+    --gradient-hero: linear-gradient(180deg, hsl(340 30% 97%) 0%, hsl(0 0% 100%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(340 30% 70% / 0.25);
+    --shadow-card: 0 8px 32px -8px hsl(340 30% 60% / 0.15);
+    --shadow-elevated: 0 16px 48px -12px hsl(340 30% 50% / 0.2);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(38 70% 55%), hsl(25 50% 65%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-rose {
+    background: linear-gradient(135deg, hsl(340 45% 55%), hsl(340 35% 70%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md rounded-2xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-full 
+           bg-primary text-primary-foreground transition-all duration-300
+           hover:shadow-lg hover:scale-105 active:scale-100;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-full
+           bg-secondary text-secondary-foreground border border-primary/20 transition-all duration-300
+           hover:bg-primary/10 hover:border-primary/40;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-full
+           transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-100;
+    background: linear-gradient(135deg, hsl(38 70% 55%), hsl(25 50% 65%));
+    color: white;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium rounded-full
+           bg-[#25D366] text-white transition-all duration-300
+           hover:bg-[#20BA5C] hover:shadow-lg hover:scale-105;
+  }
+
+  .service-card {
+    @apply relative overflow-hidden rounded-2xl bg-card transition-all duration-500;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .service-card::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, hsl(340 45% 65% / 0.1), hsl(38 70% 55% / 0.1));
+  }
+
+  .service-card:hover::before {
+    @apply opacity-100;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+    background-size: 200% 100%;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
